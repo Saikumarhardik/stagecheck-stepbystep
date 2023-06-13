@@ -1,17 +1,36 @@
-pipeline{
-agent{
-label "qwertyy"
-}
-stages{
-stage("stage one should pass"){
-steps{
-sh "touch 1.txt"
-}
-}
-stage("it will pass if prev is passed"){
-steps{
-sh "touch 2.txt"
-}
-}
-}
+pipeline {
+    
+    agent qwertyy
+    
+    parameters {
+        choice(name: "WHOSE_NAME", choices: ["", "saikumar", "sainath", "others"])
+    }
+    
+    stages {
+
+       
+
+        stage("Deploy") {
+            parallel {
+                stage("CHECK1") {
+                    when { expression { params.WHOSE_NAME == saikuamr" } }
+                    steps {
+                        sh "touch 1.txt"
+                    }
+                }
+                stage("CHECK2") {
+                    when { expression { params.WHOSE_NAME == "sainath" } }
+                    steps {
+                        sh "touch 2.txt"
+                    }
+                }
+                stage("CHECK3") {
+                    when { expression { params.WHOSE_NAME == "nothing" } }
+                    steps {
+                        sh "touch 3.txt"
+                    }
+                }
+            }
+        }
+    }
 }
