@@ -9,7 +9,7 @@ pipeline {
     stages {
             
          stage("CHECK1") {
-              when  { expression { params.WHOSE_NAME == "saikuamr" } }
+              when  { expression { params.WHOSE_NAME == "saikumar" } }
                     steps {
                         sh "touch 1.txt"
                     }
