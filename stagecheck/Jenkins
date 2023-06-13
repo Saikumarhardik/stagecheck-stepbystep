@@ -1,6 +1,6 @@
 pipeline {
     
-    agent "qwertyy"
+    agent any
     
     parameters {
         choice(name: "WHOSE_NAME", choices: ["saikumar", "sainath", "someothers"])
