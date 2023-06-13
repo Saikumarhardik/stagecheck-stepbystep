@@ -9,19 +9,19 @@ pipeline {
     stages {
             
          stage("CHECK1") {
-              when  { expression { params.WHOSE_NAME == "saikumar" } }
+              if { expression { params.WHOSE_NAME == "saikumar" } }
                     steps {
                         sh "touch 1.txt"
                     }
                 }
                 stage("CHECK2") {
-                    when { expression { params.WHOSE_NAME == "sainath" } }
+                    elif { expression { params.WHOSE_NAME == "sainath" } }
                     steps {
                         sh "touch 2.txt"
                     }
                 }
                 stage("CHECK3") {
-                    when { expression { params.WHOSE_NAME == "nothing" } }
+                    else { expression { params.WHOSE_NAME == "nothing" } }
                     steps {
                         sh "touch 3.txt"
                     }
