@@ -3,7 +3,7 @@ pipeline {
     agent qwertyy
     
     parameters {
-        choice(name: "WHOSE_NAME", choices: ["", "saikumar", "sainath", "others"])
+        choice(name: "WHOSE_NAME", choices: ["", "saikumar", "sainath", "someothers"])
     }
     
     stages {
