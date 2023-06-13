@@ -3,7 +3,7 @@ pipeline {
     agent qwertyy
     
     parameters {
-        choice(name: "WHOSE_NAME", choices: ["", "saikumar", "sainath", "someothers"])
+        choice(name: "WHOSE_NAME", choices: ["saikumar", "sainath", "someothers"])
     }
     
     stages {
@@ -11,7 +11,7 @@ pipeline {
        
 
         stage("Deploy") {
-            parallel {
+            
                 stage("CHECK1") {
                     when { expression { params.WHOSE_NAME == saikuamr" } }
                     steps {
@@ -30,7 +30,7 @@ pipeline {
                         sh "touch 3.txt"
                     }
                 }
-            }
+            
         }
     }
 }
