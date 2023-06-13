@@ -1,0 +1,17 @@
+pipeline{
+agent{
+label "qwertyy"
+}
+stages{
+stage("stage one should pass"){
+steps{
+sh "touch 1.txt"
+}
+}
+stage("it will pass if prev is passed"){
+steps{
+sh "touch 2.txt"
+}
+}
+}
+}
